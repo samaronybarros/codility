@@ -14,32 +14,38 @@ For example, given N = 1041 the function should return 5, because N has binary r
 Write an efficient algorithm for the following assumptions:
 
         N is an integer within the range [1..2,147,483,647].
+
+-------------------------------------
+Solution: https://app.codility.com/demo/results/trainingPJ2ZR7-BPM/
+Task Score: 100%
+Correctness: 100%
+Performance: 100%
 */
 
-function solution(N) {
-    var bin = dec2bin(N)
-    var ret = getLongestZeros(bin)
+function solution (N) {
+  var bin = dec2bin(N)
+  var ret = getLongestZeros(bin)
 
-    return ret
+  return ret
 }
 
-function dec2bin(dec) {
-    return (dec >>> 0).toString(2)
+function dec2bin (dec) {
+  return (dec >>> 0).toString(2)
 }
 
-function getLongestZeros(bin) {
-    var arrSeq = bin.split('1').filter(Boolean)
-    var max = 0
-    var len = 0
+function getLongestZeros (bin) {
+  var arrSeq = bin.split('1').filter(Boolean)
+  var max = 0
+  var len = 0
 
-    if (bin[bin.length - 1] == 0) {
-        arrSeq.pop()
-    }
+  if (bin[bin.length - 1] == 0) {
+    arrSeq.pop()
+  }
 
-    arrSeq.forEach(element => {
-        len = element.length
-        max = max < len ? len : max
-    })
+  arrSeq.forEach(element => {
+    len = element.length
+    max = max < len ? len : max
+  })
 
-    return max
+  return max
 }
