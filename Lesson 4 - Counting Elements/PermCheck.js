@@ -89,6 +89,3 @@ function isUnique (A) {
 
   return true
 }
-
-console.log(solution([4, 1, 3, 2]))
-console.log(solution([4, 1, 3]))
