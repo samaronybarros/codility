@@ -27,7 +27,9 @@ Performance: 100%
 */
 
 function solution(S) {
-  if (S.length % 2 === 1) return 0
+  if (isOdd(S.length)) {
+    return 0
+  }
 
   let stack = []
   for (let value of S) {
@@ -41,15 +43,15 @@ function solution(S) {
     }
   }
 
-  if (stack.length === 0) {
-    return 1
-  }
+  return stack.length === 0 ? 1 : 0
+}
 
-  return 0
+function isOdd(number) {
+  return number % 2 === 1
 }
 
 function isOpened(value) {
-  return value === '{' || value === '[' || value === '('
+  return ['{', '[', '('].includes(value)
 }
 
 function isPair(open, close) {
